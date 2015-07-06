@@ -1,19 +1,8 @@
-FROM node:0.10.36
-
-MAINTAINER mike@mikangali.com
+FROM node:0.10.39
 
 RUN apt-get update
 
 WORKDIR /app
-
-# Install meanjs tools
-RUN npm install -g grunt-cli
-RUN npm install -g bower
-RUN npm install -g yo
-RUN npm install -g generator-meanjs
-
-# Get mean quick start app
-RUN git clone https://github.com/meanjs/mean.git .
 
 # ADD package.json /app
 # ADD .bowerrc /app
@@ -21,15 +10,11 @@ RUN git clone https://github.com/meanjs/mean.git .
 # Install Mean.JS packages
 RUN npm install
 
-# Manually trigger bower. Why doesnt this work via npm install?
-RUN bower install --config.interactive=false --allow-root
-
 # currently only works for development
 ENV NODE_ENV development
 
 # Expose ports: server (3000), livereload (35729)
 EXPOSE 3000 35729
-CMD ["grunt"]
 
-COPY . /src
-CMD ["nodejs","/src/start.js"]
+COPY . /app
+CMD ["nodejs","/app/start.js"]
