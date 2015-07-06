@@ -32,5 +32,4 @@ EXPOSE 3000 35729
 CMD ["grunt"]
 
 COPY . /src
-RUN cd /src; sudo npm install
 CMD ["nodejs","/src/start.js"]
