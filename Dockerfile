@@ -9,4 +9,5 @@ ADD package.json /app
 
 ADD . /app
 RUN npm install
+CMD pwd
 CMD ["nodejs","/app/start.js"]
