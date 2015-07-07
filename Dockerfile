@@ -4,10 +4,7 @@ RUN apt-get update
 
 WORKDIR .
 
-ADD package.json /app
-# ADD .bowerrc /app
-
 ADD . /app
-RUN npm install
 CMD pwd
-CMD ["nodejs","/app/start.js"]
+RUN npm install
+CMD ["nodejs","./app/start.js"]
