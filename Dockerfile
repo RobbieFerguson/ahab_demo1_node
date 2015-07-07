@@ -7,9 +7,6 @@ WORKDIR /app
 # ADD package.json /app
 # ADD .bowerrc /app
 
-# Install Mean.JS packages
-RUN npm install
-
 # currently only works for development
 ENV NODE_ENV development
 
@@ -17,4 +14,5 @@ ENV NODE_ENV development
 EXPOSE 3000 35729
 
 COPY . /app
+RUN cd /app; npm install
 CMD ["nodejs","/app/start.js"]
