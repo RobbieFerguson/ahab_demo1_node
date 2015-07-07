@@ -2,7 +2,7 @@ FROM node:0.10.39
 
 RUN apt-get update
 
-WORKDIR .
+WORKDIR ~/
 
 RUN npm install
 ADD . /app
