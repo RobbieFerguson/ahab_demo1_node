@@ -5,6 +5,6 @@ RUN apt-get update
 WORKDIR .
 
 ADD . /app
-CMD pwd
+RUN pwd
 RUN npm install
 CMD ["nodejs","./app/start.js"]
